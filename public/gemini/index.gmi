@@ -1,0 +1,6 @@
+# My New Hugo Site
+
+
+Pages in this section:
+
+=> /posts.html 2021-10-08 Posts

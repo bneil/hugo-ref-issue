@@ -1,0 +1,22 @@
+# {{ .Title }}
+{{ $scratch := newScratch }}
+{{ $content := .RawContent -}}
+{{ $content := $content | replaceRE `#### ` "### " -}}
+{{ $content := $content | replaceRE `- \[x\]` "√  " -}}
+{{ $content := $content | replaceRE `- \[ \]` "▢  " -}}
+{{ $content := $content | replaceRE `\n- (.+?)` "\n* $1" -}}
+{{ $content := $content | replaceRE `\n(\d+). (.+?)` "\n* $2" -}}
+{{ $content := $content | replaceRE `\[\^(.+?)\]:?` "" -}}
+{{ $content := $content | replaceRE `<br/??>` "\n" -}}
+{{ $content := $content | replaceRE `<a .*href="(.+?)".*>(.+?)</a>` "[$2]($1)" -}}
+{{ $content := $content | replaceRE `\sgemini://(\S*)` " [gemini://$1](gemini://$1)" -}}
+{{ $content := $content | replaceRE `\n\n!\[.*\]\((.+?) \"(.+?)\"\)` "\n\n=> $1 Image: $2" -}}
+{{ $content := $content | replaceRE `\n\n!\[.*]\((.+?)\)` "\n\n=> $1 Embedded Image: $1" -}}
+
+{{ $content  }}
+
+---
+updated: {{ .Lastmod.Format (.Site.Params.dateFormat | default "2 January 2006") }}.
+
+=> / to the Index
+

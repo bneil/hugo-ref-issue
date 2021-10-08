@@ -1,0 +1,7 @@
+# Posts
+
+
+Pages in this section:
+
+=> /posts/second_post.html 2021-10-08 Second_post
+=> /posts/first_post.html 2021-10-08 First_post

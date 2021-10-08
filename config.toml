@@ -1,0 +1,36 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+uglyurls = true
+disablePathToLower = true
+theme="archie"
+
+[mediaTypes]
+[mediaTypes."text/gemini"]
+suffixes = ["gmi"]
+
+[outputFormats]
+[outputFormats.Gemini]
+name = "GEMINI"
+isPlainText = true
+isHTML = false
+mediaType = "text/gemini"
+protocol = "gemini://"
+permalinkable = false
+path = "gemini/"
+rel = "gemini"
+
+[outputFormats.GEMRSS]
+name = "GEMINI_RSS"
+isHTML = false
+mediaType = "application/rss+xml"
+protocol = "gemini://"
+path = "gemini/"
+
+
+[outputs]
+  home = ["HTML", "RSS", "GEMINI","GEMINI_RSS"]
+  page = ["HTML", "GEMINI"]
+  section = ["HTML","GEMINI"]
+  term = ["GEMINI", "HTML"]
+  taxanomy = ["GEMINI", "HTML"]
